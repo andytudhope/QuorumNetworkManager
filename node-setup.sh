@@ -27,9 +27,9 @@ make all
 echo "PATH=\$PATH:"$PWD/build/bin >> ~/.bashrc
 source ~/.bashrc
 
-cd ..
+cd ~
 mkdir constellation && cd constellation/
-sudo apt-get install libdb-dev libsodium-dev zlib1g-dev libtinfo-dev unzip
+sudo apt-get install -y libdb-dev libsodium-dev zlib1g-dev libtinfo-dev unzip
 wget https://github.com/jpmorganchase/constellation/releases/download/v0.0.1-alpha/ubuntu1604.zip
 unzip ubuntu1604.zip
 chmod +x ubuntu1604/constellation-node
@@ -37,12 +37,14 @@ chmod +x ubuntu1604/constellation-enclave-keygen
 echo "PATH=\$PATH:"$PWD/ubuntu1604 >> ~/.bashrc
 source ~/.bashrc
 
-cd ..
+cd ~
 git clone https://github.com/davebryson/quorum-genesis.git
 cd quorum-genesis/
-npm install -g
+sudo npm install -g
 
-cd ..
+cd ~
 git clone https://github.com/coeniebeyers/QuorumNetworkManager.git
 cd QuorumNetworkManager/
+git fetch origin
+git checkout --track origin/StabilityAndPerformanceTests
 npm install
